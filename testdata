@@ -2,3 +2,108 @@ dhdhydhdfh
 fhhj
 dfh
 fgh
+
+
+
+
+if (window.XMLHttpRequest)
+{// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+}
+else
+{// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.open("GET","YOUR_FILE.txt",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseText;
+
+
+if (window.XMLHttpRequest)
+{// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+}
+else
+{// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.open("GET","YOUR_FILE.txt",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseText;
+
+
+<html>
+   
+   <head>
+      <title>Accessing Cookies with PHP</title>
+   </head>
+   
+   <body>
+      
+      <?php
+         echo $_COOKIE["name"]. "<br />";
+         
+         /* is equivalent to */
+         echo $HTTP_COOKIE_VARS["name"]. "<br />";
+         
+         echo $_COOKIE["age"] . "<br />";
+         
+         /* is equivalent to */
+         echo $HTTP_COOKIE_VARS["name"] . "<br />";
+      ?>
+      
+   </body>
+</html>
+
+
+
+
+sub _find_files
+{
+	my ($path, $pattern, $type, $not_filter) = @_;
+	my @outfiles=();
+	
+	if($type eq "1") {
+				
+		find (
+			sub { 
+				if (defined($not_filter) and $not_filter !~ m{^\s*$}) {
+					return if ($File::Find::name !~ m/$pattern/i or $File::Find::name =~ m{$not_filter}i or ! -f $File::Find::name);
+				}
+				else {
+					return if ($File::Find::name !~ m{$pattern}i or ! -f $File::Find::name);
+				}
+				$File::Find::name =~ s{^\Q$path\E}{}i;
+				push @outfiles,$File::Find::name;
+			}, "$path" 
+		);
+	}
+	elsif($type eq "2") {
+		find (
+			sub {
+				if (defined($not_filter) and $not_filter !~ m{^\s*$}) {
+					return if ($File::Find::name !~ m/$pattern/i or $File::Find::name =~ m{$not_filter}i or ! -d $File::Find::name or $File::Find::name =~ /^\.*$/);
+				}
+				else {
+					return if ($File::Find::name !~ m/$pattern/i or ! -d $File::Find::name or $File::Find::name =~ /^\.*$/);
+				}
+
+				$File::Find::name =~ s{^\Q$path\E}{}i;
+				push @outfiles,$File::Find::name;
+			}, "$path" 
+		);
+	}
+	else {
+		find (
+			sub { 
+				return if ($File::Find::name !~ m/$pattern/i or $File::Find::name =~ /^\.*$/);
+				$File::Find::name =~ s{^\Q$path\E}{}i;
+				push @outfiles,$File::Find::name;
+			}, "$path" 
+		);
+	}
+
+	return @outfiles;
+}
+
+#=====================================================
