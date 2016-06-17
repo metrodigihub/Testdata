@@ -23,6 +23,59 @@ function e()
 }
 </script>
 </head>
+
+sub webservices_orcid
+{
+	my ($orcid, $sname) = @_;
+	my $status = "";
+	
+	# Service contract details
+	my $url = 'http://172.16.255.227/OrcidValidation/OrcidValidation.svc?wsdl';
+	my $url_debug = 'http://172.16.255.227/OrcidValidation/OrcidValidation.svc?singleWsdl';
+	my $uri = 'http://tempuri.org/'; #This is fixed provided by google.
+	my $xmlns = 'http://schemas.datacontract.org/2004/07/WcfService1'; #This is fixed provided by google.
+	
+	# Setup Network Connection
+	my $soap = SOAP::Lite
+	-> uri($uri)
+	-> on_action(sub { sprintf '%sIOrcidValidation/%s', @_ })
+	# -> on_action(sub { sprintf '%sOrcidValidation/%s', @_ })
+	-> proxy($url)
+	->autotype(0)->readable(1);
+	
+	# Call HelloWorld
+	my $response = $soap->checkStatus(SOAP::Data->new(name => 'id', value => $orcid)) or return 0;
+	
+	# Print the Result
+	if (! $response->fault)
+	{
+		my %hash = %{$response->result};
+		if($hash{statusResult} =~ m{true}is){
+			if($hash{surName} =~ m{$sname}is){
+				$status = "true";
+			}
+			else{
+				$status = "false";
+			}
+		}
+		else{
+			$status = "false";
+		}
+		
+		# foreach my $tm (keys %hash) {
+			# print "\n>>$tm => $hash{$tm}";
+		# }
+		# die $response->faultstring;
+	}
+	else {
+			print "\nError: **Please check your internet connection.";
+			return 0;
+			#die $response->faultstring;
+	}
+	
+	return $status;
+}
+
 <body>
 <h2>Calculator Created by Anoop Kumar Sharma</h2>
 <div class="box">
