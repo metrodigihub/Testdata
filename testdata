@@ -30,8 +30,8 @@ sub webservices_orcid
 	my $status = "";
 	
 	# Service contract details
-	my $url = 'http://172.16.255.227/OrcidValidation/OrcidValidation.svc?wsdl';
-	my $url_debug = 'http://172.16.255.227/OrcidValidation/OrcidValidation.svc?singleWsdl';
+	my $url = 'http://ipaddress/OrcidValidation/OrcidValidation.svc?wsdl';
+	my $url_debug = 'http://ipaddress/OrcidValidation/OrcidValidation.svc?singleWsdl';
 	my $uri = 'http://tempuri.org/'; #This is fixed provided by google.
 	my $xmlns = 'http://schemas.datacontract.org/2004/07/WcfService1'; #This is fixed provided by google.
 	
