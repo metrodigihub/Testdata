@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>sample</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="head_tag"><span class="glyphicon glyphicon-book"></span> Skip ID Validation</div>
+				</div>
+			</div>
+			<div class="section_border">
+				<div class="section_part1">
+					<div class="heading border_color">Article information</div>
+					<div class="row mrg_top">
+						<div class="col-sm-6 article"> <label for="0">Article ID- <input class="input" type="text" id="0"></label></div>
+						<div class="col-sm-6"> <label class="" for="1">Stage <input class="input stage" type="text" id="1"></label></div>
+					</div>
+					<div class="row inner_div">
+						<fieldset class="scheduler-border">
+							<legend class="">Add SkipID</legend>
+							<div class="col-sm-7">
+								<label for="usr">skip ID <input class="input" type="text" id="usr">
+								</label>
+							</div>
+							<div class="btn_div col-sm-5">
+								<button type="button" class="btn btn-primary  col-xs-offset-1 col-xs-5">Add</button>
+								<button type="button" class="btn btn-primary  col-xs-offset-1 col-xs-5">Clear</button>
+							</div>
+						</fieldset>
+					</div>
+				</div>
+				<div class="list_center">
+					<div class="">
+						<div class="head_tag article">List of Skip ID</div>
+					</div>
+				</div>
+				<div class="row btn_div article">
+					<button type="button" class="col-sm-1 btn btn-primary col-xs-6">Refresh</button>							
+					<div class="checkbox col-sm-offset-8 col-sm-3 col-xs-6">
+						<label><input type="checkbox" value=""><span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>Select all</label>
+					</div>
+				</div>
+				
+				<div class="section_part2 table-responsive">
+					<table class="table table-bordered table-hover table-condensed">
+						<thead>
+							<tr>
+								<th class="text-center">S.No.</th>
+								<th class="text-center">Article ID</th>
+								<th class="text-center">Stage</th>
+								<th class="text-center">Skip ID</th>
+								<th class="text-center">Remove</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>String</td>
+								<td>String</td>
+								<td>String</td>
+								<td>String</td>
+								<td>
+									<div class="checkbox col-sm-offset-4"><label><input type="checkbox" value=""><span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label></div>
+								</td>
+							</tr>
+							<tr>
+								<td>String</td>
+								<td>String</td>
+								<td>String</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="grid_div col-sm-offset-7 col-sm-5">
+					<div class="row">
+						<button type="button" class="btn-sm col-sm-3 col-xs-6 btn btn-primary">GridForSkipID</button>
+					</div>
+					<div class="clearfix visible-sm-block"></div>
+					<div class='row date' id='datetimepicker1'>
+						<div class="btn_div1 calendar_row">					
+							<span class="col-sm-1">
+							<span class="glyphicon glyphicon-calendar"></span>
+							</span>
+							<button type="button" class="col-sm-2">(MainView)</button> 
+							<button type="button" class="col-sm-2">gridView1</button> 
+							<a class="col-sm-7 col-xs-12" href="#"><u>(Click here to change view)</u></a>
+						</div>
+					</div>
+					<div class="row anchor">
+						<a href="#" class="col-sm-offset-1 col-sm-11 col-xs-12"><u>(Click here to create a new level)</u></a>
+					</div>
+					<hr>
+					<div class="row retrieve_div">
+						<button type="button" class="col-sm-5">Retrieve details</button> 
+						<button type="button" class="col-sm-offset-1 col-sm-5">Run Designer</button> 
+					</div>
+				</div>				
+				<div class="row btn_div1">
+					<hr>
+					<div class="checkbox col-sm-6 col-xs-12">
+					
+						<label><input type="checkbox" value=""><span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>Show removed ID's in track</label>
+					</div>
+					<button type="button" class="btn btn-sm col-sm-offset-3 col-sm-3 col-xs-12 btn btn-primary">Delete skip ID</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel-default">
+					<div class="head_tag">copy right of integra software services pvt ltd [add]</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
